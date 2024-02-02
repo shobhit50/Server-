@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,28 +84,28 @@ WSGI_APPLICATION = 'Webhook.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 #  Database localhost:27017
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'Web_hook',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'localhost:27017', 
-        }
-    }
-}
-
-# database for production
 # DATABASES = {
 #     'default': {
-#             'ENGINE': 'djongo',
-#             'NAME': 'Django',
-#             'ENFORCE_SCHEMA': False,
-#             'CLIENT': {
-#                 'host': f'mongodb+srv://shobhit:{os.getenv('DB_PASS')}@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
-#             }  
+#         'ENGINE': 'djongo',
+#         'NAME': 'Web_hook',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': 'localhost:27017', 
 #         }
+#     }
 # }
+
+# database for production
+DATABASES = {
+    'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'Django',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': f'mongodb+srv://shobhit:{os.getenv('DB_PASS')}@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
+            }  
+        }
+}
 
 
 # Password validation
@@ -142,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
