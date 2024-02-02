@@ -84,28 +84,28 @@ WSGI_APPLICATION = 'Webhook.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 #  Database localhost:27017
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'Web_hook',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'localhost:27017', 
-        }
-    }
-}
-
-# database for production
 # DATABASES = {
 #     'default': {
-#             'ENGINE': 'djongo',
-#             'NAME': 'Django',
-#             'ENFORCE_SCHEMA': False,
-#             'CLIENT': {
-#                 'host': f'mongodb+srv://shobhit:{os.environ["DB_PASS"]}@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
-#             }  
+#         'ENGINE': 'djongo',
+#         'NAME': 'Web_hook2',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': 'localhost:27017', 
 #         }
+#     }
 # }
+
+# database for production
+DATABASES = {
+    'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'data2',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': f'mongodb+srv://shobhit:uXw9CSZfLVwBnEwj@cluster0.snn3wbn.mongodb.net/Django?retryWrites=true&w=majority'
+            }  
+        }
+}
 
 
 # Password validation

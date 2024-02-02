@@ -8,7 +8,6 @@ class Data(models.Model):
     description = models.CharField(max_length=500)
 
 class Webhook(models.Model):
-    id = models.AutoField(primary_key=True)
     company_id = models.CharField(max_length=100)
     url = models.URLField()
     headers = models.JSONField(blank=True, null=True)
