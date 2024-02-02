@@ -11,7 +11,7 @@ class WebhookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Webhook
         fields = '__all__'  
-    def create(self, validated_data):
-        # Convert the string representation of ObjectId to an ObjectId object
-        validated_data['id'] = ObjectId(validated_data['id'])
-        return Webhook.objects.create(**validated_data)
+    # def create(self, validated_data):
+    #     # Convert the string representation of ObjectId to an ObjectId object
+    #     validated_data['id'] = ObjectId(validated_data['id'])
+    #     return Webhook.objects.create(**validated_data)
